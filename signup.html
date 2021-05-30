@@ -15,6 +15,191 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
         <link rel="stylesheet" href="./css/fontawesome.min.css">
+        <script type="text/javascript">
+            function validation()
+            {
+                var gender;
+                var first_name = document.getElementById("first_name").value;
+                var last_name = document.getElementById("last_name").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var password1 = document.getElementById("password1").value;
+                var password2 = document.getElementById("password2").value;
+                
+                if(first_name == "")
+                {
+                    document.getElementById("first_name1").innerHTML="Please Enter First Name";
+                }
+                else
+                {
+                    if(first_name.match(/^[A-Za-z]+$/))
+                    {
+                        document.getElementById("first_name1").innerHTML="";   
+                    }
+                    else
+                    {
+                        document.getElementById("first_name").value="";
+                        document.getElementById("first_name1").innerHTML="Character Only";   
+                    }
+                }
+
+                if(last_name == "")
+                {
+                    document.getElementById("last_name1").innerHTML="Please Enter Last Name";
+                }
+                else
+                {
+                    if(last_name.match(/^[A-Za-z]+$/))
+                    {
+                        document.getElementById("last_name1").innerHTML="";   
+                    }
+                    else
+                    {
+                        document.getElementById("last_name").value="";
+                        document.getElementById("last_name1").innerHTML="Character Only";   
+                    }
+                }
+
+                if(document.getElementById('male').checked)
+                {
+                    document.getElementById("gender1").innerHTML="";
+                }
+                else
+                {
+                    if(document.getElementById('female').checked)
+                    {
+                        document.getElementById("gender1").innerHTML="";
+                    }
+                    else
+                    {
+                        document.getElementById("gender1").innerHTML="Please Select Gender";
+                    }
+                }
+
+                if(document.getElementById("list").value=="")
+                {
+                    document.getElementById("list1").innerHTML="Please Select Country";
+                }
+                else
+                {
+                    document.getElementById("list1").innerHTML="";
+                }
+
+                if(email == "")
+                {
+                    document.getElementById("email1").innerHTML="Please Enter Email";
+                }
+                else
+                {
+                    if(email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/))
+                    {
+                        document.getElementById("email1").innerHTML="";   
+                    }
+                    else
+                    {
+                        document.getElementById("email").value="";
+                        document.getElementById("email1").innerHTML="Not valid Email Format";   
+                    }
+                }
+
+                if(phone == "")
+                {
+                    document.getElementById("phone1").innerHTML="Please Enter Phone";
+                }
+                else
+                {
+                    if(phone.length<10)
+                    {
+                        document.getElementById("phone1").innerHTML="Phone Number cannot be less than 10";  
+                    }
+                    else
+                    {
+                        if(phone.match(/^[0-9]+$/))
+                        {
+                            document.getElementById("phone1").innerHTML="";   
+                        }
+                        else
+                        {
+                            document.getElementById("phone").value="";
+                            document.getElementById("phone1").innerHTML="Number only";   
+                        }
+                    }
+                }
+
+                if(password1 == "")
+                {
+                    document.getElementById("password11").innerHTML="Please Enter Password";
+                }
+                else
+                {
+                    if(password1.length<8)
+                    {
+                        document.getElementById("password11").innerHTML="Password cannot be less than 8";
+                    }
+                    else
+                    {
+                        if(password1.match(/^[A-Za-z0-9@_.]+$/))
+                        {
+                            document.getElementById("password11").innerHTML="";   
+                        }
+                        else
+                        {
+                            document.getElementById("password1").value="";
+                            document.getElementById("password11").innerHTML="Must be only @ OR _ OR . OR Number OR Character";   
+                        }
+                    }
+                }
+
+                if(password2 == "")
+                {
+                    document.getElementById("password22").innerHTML="Please Enter Password";
+                }
+                else
+                {
+                    if(password2.length<8)
+                    {
+                        document.getElementById("password22").innerHTML="Password cannot be less than 8";
+                    }
+                    else
+                    {
+                        if(password2.match(/^[A-Za-z0-9@_.]+$/))
+                        {
+                            document.getElementById("password22").innerHTML="";   
+                        }
+                        else
+                        {
+                            document.getElementById("password2").value="";
+                            document.getElementById("password22").innerHTML="Must be only @ OR _ OR . OR Number OR Character";   
+                        }
+                    }
+                }
+
+                if(password1 != "" && password2 != "" && password1.length>=8 && password2.length>=8 && password1.match(/^[A-Za-z0-9@_.]+$/) && password2.match(/^[A-Za-z0-9@_.]+$/))
+                {
+                    if(password1 == password2)
+                    {
+                        document.getElementById("password11").innerHTML="";
+                        document.getElementById("password22").innerHTML="";
+                    }
+                    else
+                    {
+                        document.getElementById("password1").value="";
+                        document.getElementById("password2").value="";
+                        document.getElementById("password11").innerHTML="Password doesnot Match";
+                        document.getElementById("password22").innerHTML="Password doesnot Match";
+                    }
+                }
+
+                if(document.getElementById("agreecheck").checked)
+                {
+                    document.getElementById("agreecheck1").innerHTML="";
+                }
+                else
+                {
+                    document.getElementById("agreecheck1").innerHTML="Please Select CheckBox";
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -89,7 +274,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </nav>
 
@@ -99,8 +283,121 @@
                     <div class="col-lg-6 m-auto">
                         <center><h1 class="h1" style="color: white;">Sign Up</h1></center>
                     </div>
-                    <div class="text-white">
-                        
+
+                    <div class="container" style="background-color: #72c0ce; padding-top: 2%; padding-bottom: 0%; padding-left: 20%; padding-right: 20%;">
+                        <div class="container" style="background-color: white; padding-top: 5%; padding-bottom: 5%; padding-left: 5%; padding-right: 5%;">
+                            <form action="#" autocomplete="off" onsubmit="validation()">
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="form-outline">
+                                        <input type="text" id="first_name" class="form-control" placeholder="First Name" />
+                                        <span id="first_name1" style="color: red;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                        <input type="text" id="last_name" class="form-control" placeholder="Last Name" />
+                                        <span id="last_name1" style="color: red;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input
+                                              class="form-check-input"
+                                              type="radio"
+                                              id="male"
+                                              name="gender"
+                                              style="background-color: #72c0ce;"
+                                            />
+                                            <label class="form-check-label" for="Male">Male</label>
+                                          </div>
+                                          
+                                          <div class="form-check">
+                                            <input
+                                              class="form-check-input"
+                                              type="radio"
+                                              id="female"
+                                              name="gender"
+                                              style="background-color: #72c0ce;"
+                                            />
+                                            <label class="form-check-label" for="Female">Female</label>
+                                        </div>
+                                        <span id="gender1" style="color: red;"></span>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <select class="form-control" id="list">
+                                                <option value="">Select Country</option>
+                                                <option value="India">India</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="USA">USA</option>
+                                            </select>
+                                            <span id="list1" style="color: red;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="email" id="email" class="form-control" placeholder="Email" />
+                                    <span id="email1" style="color: red;"></span>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="phone" class="form-control" placeholder="Phone Number" maxlength="10" />
+                                    <span id="phone1" style="color: red;"></span>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="password1" class="form-control" placeholder="Password" />
+                                    <span id="password11" style="color: red;"></span>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="password2" class="form-control" placeholder="Confirm Password" />
+                                    <span id="password22" style="color: red;"></span>
+                                </div>
+
+                                <div class="form-check d-flex mb-4">
+                                    <input
+                                        class="form-check-input me-2"
+                                        type="checkbox"
+                                        value=""
+                                        id="agreecheck"
+                                        style="background-color: #72c0ce;"
+                                    />
+                                    <label class="form-check-label" for="agreecheck">
+                                        I agree to Terms and Conditions.
+                                    </label>
+                                    &nbsp;&nbsp;
+                                    <span id="agreecheck1" style="color: red;"></span>
+                                </div>
+                                
+                                <center><button type="submit" class="btn btn-block mb-4" style="background-color: #72c0ce;">Sign up</button></center>
+                                
+                                <div class="text-center">
+                                    <p>or sign up with:</p>
+                                    <button type="button" class="btn btn-floating mx-1" style="background-color: #72c0ce;">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+                                
+                                    <button type="button" class="btn btn-floating mx-1" style="background-color: #72c0ce;">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+                                
+                                    <button type="button" class="btn btn-floating mx-1" style="background-color: #72c0ce;">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                
+                                    <button type="button" class="btn btn-floating mx-1" style="background-color: #72c0ce;">
+                                        <i class="fab fa-github"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -194,7 +491,6 @@
         <script src="./js/bootstrap.bundle.min.js"></script>
         <script src="./js/main.js"></script>
         <script src="./js/custom.js"></script>
-        
     </body>
 
 </html>
